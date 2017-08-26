@@ -16,5 +16,14 @@ MongoClient.connect('mongodb://localhost:27017/TodoApi',(err,db)=>{
         }
         console.log(JSON.stringify(result.ops[0]._id.getTimestamp()));
     })
+     db.collection('Todos').insertOne({
+        text : "Doing a project",
+        complete : false
+    },(err,result)=>{
+        if(err){
+            return console.log("Date could not be inserted");
+        }
+        console.log(JSON.stringify(result.ops[0]._id.getTimestamp()));
+    })
     db.close();
 });

@@ -1,0 +1,14 @@
+var {mongoose} = require("./../server/db/mongoose");
+var {Todo} = require("./../server/models/todo");
+var {User} = require("./../server/models/user");
+ var id = "59a184c72a0a6d29dc7b312e";
+User.findById('59a184c72a0a6d29dc7b312e').then((user)=>{
+    if(!user){
+        console.log("No user found")
+        
+    }
+    console.log(JSON.stringify(user,undefined,2));
+},(err)=>{
+    console.log(err);
+});
+

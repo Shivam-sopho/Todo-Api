@@ -34,4 +34,6 @@ app.get("/todo",(req,res)=>{
 app.listen(3000 , ()=>{
     console.log("Server started");
 })
-
+module.exports = {
+    app
+}

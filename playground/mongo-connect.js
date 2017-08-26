@@ -1,7 +1,7 @@
 const {MongoClient,ObjectID} = require("mongodb");
 var s = new ObjectID();
 console.log(s);
-MongoClient.connect('mongodb://localhost:27017/TodoApi',(err,db)=>{
+MongoClient.connect('mongodb://localhost:27017/TodoApp',(err,db)=>{
     if(err){
         return console.log("Could not connect to the database");
     }
