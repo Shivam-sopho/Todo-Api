@@ -1,3 +1,5 @@
+//require("./config/config");
+
 var express = require("express");
 var bodyParser = require("body-parser");
 var {ObjectID} = require("mongodb");
@@ -50,12 +52,12 @@ app.get("/todo/:id",(req,res)=>{
 });
 app.delete("/todo/:id" ,(req,res)=>{
    var id = req.params.id;
-   if(!ObjectID.idValid(id)) {
-       return req.status(404).send();
+   if(!ObjectID.isValid(id)) {
+       return res.status(404).send();
    }
    Todo.findByIdAndRemove(id).then((todo)=>{
        if(!todo){
-           return res.statu(400).send();
+           return res.status(400).send();
        }
        res.send({todo});
    },(err)=>{
@@ -82,7 +84,7 @@ app.patch("/todo/:id", (req, res) => {
                     res.send({todo});
         }).catch((e) => {
             res.status(400).send();
-        })
+        });
     });
 app.listen(port , ()=>{
     console.log(`Server started on ${port}`);
